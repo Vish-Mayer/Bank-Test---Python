@@ -12,3 +12,8 @@ class Bank_Account_Test(unittest.TestCase):
     def test_deposit(self):
         self.account.deposit(10)
         self.assertEqual(self.account.balance, 10)
+
+    def test_withdraw(self):
+        self.account.deposit(10)
+        self.account.withdraw(5)
+        self.assertEqual(self.account.balance, 5)
