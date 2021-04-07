@@ -12,3 +12,8 @@ class Transaction_Test(unittest.TestCase):
         self.transaction.credit(0, 10)
         self.transaction.transaction_record.assert_called_once_with(balance=10, credit=10)
         self.assertEqual(len(self.transaction.history), 1)
+
+    def test_debit(self):
+        self.transaction.debit(10, 5)
+        self.transaction.transaction_record.assert_called_once_with(balance=5, debit=5)
+        self.assertEqual(len(self.transaction.history), 2)
