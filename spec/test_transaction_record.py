@@ -18,3 +18,5 @@ class Transaction_Record_Test(unittest.TestCase):
     def test_debit(self):
         self.assertEqual(self.credit_record.debit, None)
         self.assertEqual(self.withdraw_record.debit, 10)
+
+    
