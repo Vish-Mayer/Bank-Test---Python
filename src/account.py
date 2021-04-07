@@ -7,9 +7,9 @@ class Bank_Account:
         self.transaction = transaction
 
     def deposit(self, amount):
-        self.balance += amount
         self.transaction.credit(self.balance, amount)
+        self.balance += amount
 
     def withdraw(self, amount):
-        self.balance -= amount
         self.transaction.debit(self.balance, amount)
+        self.balance -= amount

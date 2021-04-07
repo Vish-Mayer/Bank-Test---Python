@@ -12,12 +12,12 @@ class Bank_Account_Test(unittest.TestCase):
         self.assertEqual(self.account.balance, 0)
 
     def test_deposit(self):
-        self.account.deposit(10)
-        self.assertEqual(self.account.balance, 10)
-        self.account.transaction.credit.assert_called_once_with(10, 10)
+        self.account.deposit(100)
+        self.assertEqual(self.account.balance, 100)
+        self.account.transaction.credit.assert_called_once_with(0, 100)
 
     def test_withdraw(self):
-        self.account.deposit(10)
+        self.account.deposit(100)
         self.account.withdraw(5)
-        self.assertEqual(self.account.balance, 5)
-        self.account.transaction.debit.assert_called_once_with(5, 5)
+        self.assertEqual(self.account.balance, 95)
+        self.account.transaction.debit.assert_called_once_with(100, 5)
