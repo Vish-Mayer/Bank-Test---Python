@@ -8,8 +8,11 @@ class Transaction:
 
     def credit(self, balance, amount):
         new_balance = balance + amount
-        self.history.append(self.transaction_record(balance = new_balance, credit = amount))
+        self.__add_to_history(self.transaction_record(balance = new_balance, credit = amount))
 
     def debit(self, balance, amount):
         new_balance = balance - amount
-        self.history.append(self.transaction_record(balance = new_balance, debit = amount))
+        self.__add_to_history(self.transaction_record(balance = new_balance, debit = amount))
+
+    def __add_to_history(self, transaction):
+        self.history.append(transaction)
